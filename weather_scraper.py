@@ -3,13 +3,25 @@
 
 import requests
 import csv
+import logging
 import lxml.html as lh
+from tqdm import tqdm
 
 import config
 
 from util.UnitConverter import ConvertToSystem
 from util.Parser import Parser
 from util.Utils import Utils
+
+# logging: everything non-progress-bar goes to a .log file
+logging.basicConfig(
+    filename='weather_scraper.log',
+    filemode='a',
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    encoding='utf-8',
+)
+log = logging.getLogger(__name__)
 
 # configuration
 stations_file = open('stations.txt', 'r')
@@ -28,19 +40,20 @@ def scrap_station(weather_station_url):
 
     session = requests.Session()
     timeout = 5
-    global START_DATE
-    global END_DATE
-    global UNIT_SYSTEM
-    global FIND_FIRST_DATE
 
+    station_start = START_DATE
     if FIND_FIRST_DATE:
-        # find first date
-        first_date_with_data = Utils.find_first_data_entry(weather_station_url=weather_station_url, start_date=START_DATE)
-        # if first date found
-        if(first_date_with_data != -1):
-            START_DATE = first_date_with_data
-    
-    url_gen = Utils.date_url_generator(weather_station_url, START_DATE, END_DATE)
+        first_date_with_data = Utils.find_first_data_entry(
+            weather_station_url=weather_station_url,
+            start_date=START_DATE,
+            end_date=END_DATE,
+        )
+        if first_date_with_data != -1:
+            station_start = first_date_with_data
+        else:
+            log.warning(f'first-date search returned no result; falling back to {START_DATE}')
+
+    date_url_pairs = list(Utils.date_url_generator(weather_station_url, station_start, END_DATE))
     station_name = weather_station_url.split('/')[-1]
     file_name = f'{station_name}.csv'
 
@@ -58,17 +71,23 @@ def scrap_station(weather_station_url):
         else:
             raise Exception("please set 'unit_system' to either \"metric\" or \"imperial\"! ")
 
-        for date_string, url in url_gen:
+        progress = tqdm(date_url_pairs, desc=station_name, unit='day')
+        for date_string, url in progress:
             try:
-                print(f'Scraping data from {url}')
+                log.info(f'Scraping data from {url}')
                 history_table = False
-                while not history_table:
+                max_attempts = 4
+                for attempt in range(1, max_attempts + 1):
                     html_string = session.get(url, timeout=timeout)
                     doc = lh.fromstring(html_string.content)
                     history_table = doc.xpath('//*[@id="main-page-content"]/div/div/div/lib-history/div[2]/lib-history-table/div/div/div/table/tbody')
-                    if not history_table:
-                        print("refreshing session")
-                        session = requests.Session()
+                    if history_table:
+                        break
+                    log.info(f'no history table on attempt {attempt} for {date_string}; refreshing session')
+                    session = requests.Session()
+                if not history_table:
+                    log.warning(f'giving up on {date_string} after {max_attempts} attempts (no history table)')
+                    continue
 
                 # parse html table rows
                 data_rows = Parser.parse_html_table(date_string, history_table)
@@ -76,15 +95,15 @@ def scrap_station(weather_station_url):
                 # convert to metric system
                 converter = ConvertToSystem(UNIT_SYSTEM)
                 data_to_write = converter.clean_and_convert(data_rows)
-                    
-                print(f'Saving {len(data_to_write)} rows')
+
+                log.info(f'Saving {len(data_to_write)} rows for {date_string}')
+                progress.set_postfix(rows=len(data_to_write), date=date_string)
                 writer.writerows(data_to_write)
             except Exception as e:
-                print(e)
-
+                log.warning(f'{date_string}: {e}')
 
 
 for url in URLS:
     url = url.strip()
-    print(url)
+    log.info(f'Station: {url}')
     scrap_station(url)
