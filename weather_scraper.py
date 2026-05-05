@@ -5,6 +5,7 @@ import requests
 import csv
 import logging
 import lxml.html as lh
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 import config
@@ -34,6 +35,8 @@ END_DATE = config.END_DATE
 UNIT_SYSTEM = config.UNIT_SYSTEM
 # find the first data entry automatically
 FIND_FIRST_DATE = config.FIND_FIRST_DATE
+# how many stations to scrape concurrently
+MAX_WORKERS = getattr(config, 'MAX_WORKERS', 4)
 
 
 def scrap_station(weather_station_url):
@@ -103,7 +106,15 @@ def scrap_station(weather_station_url):
                 log.warning(f'{date_string}: {e}')
 
 
-for url in URLS:
-    url = url.strip()
-    log.info(f'Station: {url}')
-    scrap_station(url)
+station_urls = [u.strip() for u in URLS if u.strip()]
+log.info(f'Scraping {len(station_urls)} stations with up to {MAX_WORKERS} workers')
+
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    future_to_url = {executor.submit(scrap_station, url): url for url in station_urls}
+    for future in as_completed(future_to_url):
+        url = future_to_url[future]
+        try:
+            future.result()
+            log.info(f'Finished station: {url}')
+        except Exception as e:
+            log.exception(f'Station failed: {url}: {e}')

@@ -11,3 +11,7 @@ UNIT_SYSTEM = "imperial"
 
 # Automatically find first date where data is logged
 FIND_FIRST_DATE = True
+
+# Number of stations to scrape concurrently. Keep modest (3-5) to avoid
+# triggering server-side rate limiting / IP bans.
+MAX_WORKERS = 4
