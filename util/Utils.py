@@ -1,5 +1,6 @@
 import config
 import logging
+import threading
 from datetime import timedelta, date
 import lxml.html as lh
 import requests
@@ -14,14 +15,21 @@ log = logging.getLogger(__name__)
 # observed in practice while keeping probe counts bounded.
 PROBE_RADIUS_DAYS = 30
 
+_thread_local = threading.local()
+
 
 class Utils:
-    session = requests.Session()
     weather_station_url = None
 
-    def __init__(self, session, weather_station_url):
-        self.session = session
+    def __init__(self, weather_station_url):
         self.weather_station_url = weather_station_url
+
+    @classmethod
+    def _get_session(cls):
+        """Return a per-thread requests.Session (created lazily)."""
+        if not hasattr(_thread_local, 'session'):
+            _thread_local.session = requests.Session()
+        return _thread_local.session
 
     @classmethod
     def date_range_generator(cls, start, end=date.today()):
@@ -40,7 +48,7 @@ class Utils:
     def fetch_data_table(cls, url):
         """Returns True if the wunderground page at `url` has any data rows."""
         try:
-            html_string = cls.session.get(url, timeout=10)
+            html_string = cls._get_session().get(url, timeout=10)
             doc = lh.fromstring(html_string.content)
             data_table = doc.xpath('//*[@id="main-page-content"]/div/div/div/lib-history/div[2]/lib-history-table/div/div/div/table/tbody/tr')
             return bool(data_table)

@@ -1,10 +1,12 @@
 # Made with love by Karl
 # Contact me on Telegram: @karlpy
 
+import os
 import requests
 import csv
 import logging
 import lxml.html as lh
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 import config
@@ -24,8 +26,11 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # configuration
-stations_file = open('stations.txt', 'r')
+STATIONS_FILE = 'stations_miami.txt'
+stations_file = open(STATIONS_FILE, 'r')
 URLS = stations_file.readlines()
+OUTPUT_DIR = os.path.splitext(STATIONS_FILE)[0]
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 # Date format: YYYY-MM-DD
 START_DATE = config.START_DATE
 END_DATE = config.END_DATE
@@ -34,9 +39,10 @@ END_DATE = config.END_DATE
 UNIT_SYSTEM = config.UNIT_SYSTEM
 # find the first data entry automatically
 FIND_FIRST_DATE = config.FIND_FIRST_DATE
+MAX_WORKERS = config.MAX_WORKERS
 
 
-def scrap_station(weather_station_url):
+def scrap_station(weather_station_url, position=0):
 
     session = requests.Session()
     timeout = 5
@@ -55,7 +61,7 @@ def scrap_station(weather_station_url):
 
     date_url_pairs = list(Utils.date_url_generator(weather_station_url, station_start, END_DATE))
     station_name = weather_station_url.split('/')[-1]
-    file_name = f'{station_name}.csv'
+    file_name = os.path.join(OUTPUT_DIR, f'{station_name}.csv')
 
     with open(file_name, 'a+', newline='') as csvfile:
         fieldnames = ['Date', 'Time',	'Temperature',	'Dew_Point',	'Humidity',	'Wind',	'Speed',	'Gust',	'Pressure',	'Precip_Rate',	'Precip_Accum',	'UV',   'Solar']
@@ -71,7 +77,7 @@ def scrap_station(weather_station_url):
         else:
             raise Exception("please set 'unit_system' to either \"metric\" or \"imperial\"! ")
 
-        progress = tqdm(date_url_pairs, desc=station_name, unit='day')
+        progress = tqdm(date_url_pairs, desc=station_name, unit='day', position=position, leave=True)
         for date_string, url in progress:
             try:
                 log.info(f'Scraping data from {url}')
@@ -103,7 +109,15 @@ def scrap_station(weather_station_url):
                 log.warning(f'{date_string}: {e}')
 
 
-for url in URLS:
-    url = url.strip()
-    log.info(f'Station: {url}')
-    scrap_station(url)
+urls = [url.strip() for url in URLS if url.strip()]
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+    futures = {
+        pool.submit(scrap_station, url, i): url
+        for i, url in enumerate(urls)
+    }
+    for future in as_completed(futures):
+        url = futures[future]
+        try:
+            future.result()
+        except Exception as e:
+            log.error(f'Station {url} failed: {e}')

@@ -11,3 +11,6 @@ UNIT_SYSTEM = "imperial"
 
 # Automatically find first date where data is logged
 FIND_FIRST_DATE = True
+
+# Number of stations to scrape in parallel (1 = sequential)
+MAX_WORKERS = 4
