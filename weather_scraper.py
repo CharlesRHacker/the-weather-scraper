@@ -1,6 +1,7 @@
 # Made with love by Karl
 # Contact me on Telegram: @karlpy
 
+import os
 import requests
 import csv
 import logging
@@ -25,8 +26,11 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # configuration
-stations_file = open('stations.txt', 'r')
+STATIONS_FILE = 'stations_miami.txt'
+stations_file = open(STATIONS_FILE, 'r')
 URLS = stations_file.readlines()
+OUTPUT_DIR = os.path.splitext(STATIONS_FILE)[0]
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 # Date format: YYYY-MM-DD
 START_DATE = config.START_DATE
 END_DATE = config.END_DATE
@@ -39,7 +43,7 @@ FIND_FIRST_DATE = config.FIND_FIRST_DATE
 MAX_WORKERS = getattr(config, 'MAX_WORKERS', 4)
 
 
-def scrap_station(weather_station_url):
+def scrap_station(weather_station_url, position=0):
 
     session = requests.Session()
     timeout = 5
@@ -58,7 +62,7 @@ def scrap_station(weather_station_url):
 
     date_url_pairs = list(Utils.date_url_generator(weather_station_url, station_start, END_DATE))
     station_name = weather_station_url.split('/')[-1]
-    file_name = f'{station_name}.csv'
+    file_name = os.path.join(OUTPUT_DIR, f'{station_name}.csv')
 
     with open(file_name, 'a+', newline='') as csvfile:
         fieldnames = ['Date', 'Time',	'Temperature',	'Dew_Point',	'Humidity',	'Wind',	'Speed',	'Gust',	'Pressure',	'Precip_Rate',	'Precip_Accum',	'UV',   'Solar']
@@ -74,7 +78,7 @@ def scrap_station(weather_station_url):
         else:
             raise Exception("please set 'unit_system' to either \"metric\" or \"imperial\"! ")
 
-        progress = tqdm(date_url_pairs, desc=station_name, unit='day')
+        progress = tqdm(date_url_pairs, desc=station_name, unit='day', position=position, leave=True)
         for date_string, url in progress:
             try:
                 log.info(f'Scraping data from {url}')
