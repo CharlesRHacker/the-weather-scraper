@@ -112497,3 +112497,123 @@
 2026-05-05 13:35:04,936 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-02/2023-07-02/daily
 2026-05-05 13:35:05,330 INFO Saving 269 rows for 2025-03-13
 2026-05-05 13:35:05,332 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-14/2025-03-14/daily
+2026-05-05 13:35:06,376 INFO Saving 287 rows for 2025-12-05
+2026-05-05 13:35:06,378 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-06/2025-12-06/daily
+2026-05-05 13:35:06,394 INFO Saving 283 rows for 2021-01-13
+2026-05-05 13:35:06,396 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-14/2021-01-14/daily
+2026-05-05 13:35:06,759 INFO Saving 288 rows for 2025-12-23
+2026-05-05 13:35:06,761 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-24/2025-12-24/daily
+2026-05-05 13:35:06,963 INFO 2025-01-17: no <tr> rows in history tbody
+2026-05-05 13:35:06,963 INFO Saving 0 rows for 2025-01-17
+2026-05-05 13:35:06,964 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-18/2025-01-18/daily
+2026-05-05 13:35:07,094 INFO Saving 288 rows for 2023-07-24
+2026-05-05 13:35:07,097 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-25/2023-07-25/daily
+2026-05-05 13:35:07,256 INFO Saving 274 rows for 2021-02-27
+2026-05-05 13:35:07,258 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-02-28/2021-02-28/daily
+2026-05-05 13:35:08,607 INFO Saving 288 rows for 2023-07-02
+2026-05-05 13:35:08,609 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-03/2023-07-03/daily
+2026-05-05 13:35:09,114 INFO Saving 287 rows for 2025-03-14
+2026-05-05 13:35:09,116 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-15/2025-03-15/daily
+2026-05-05 13:35:09,954 INFO Saving 288 rows for 2025-12-06
+2026-05-05 13:35:09,955 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-07/2025-12-07/daily
+2026-05-05 13:35:10,282 INFO Saving 283 rows for 2021-01-14
+2026-05-05 13:35:10,283 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-15/2021-01-15/daily
+2026-05-05 13:35:10,336 INFO 2025-01-18: no <tr> rows in history tbody
+2026-05-05 13:35:10,336 INFO Saving 0 rows for 2025-01-18
+2026-05-05 13:35:10,337 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-19/2025-01-19/daily
+2026-05-05 13:35:10,502 INFO Saving 288 rows for 2025-12-24
+2026-05-05 13:35:10,503 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-25/2025-12-25/daily
+2026-05-05 13:35:10,731 INFO Saving 287 rows for 2023-07-25
+2026-05-05 13:35:10,732 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-26/2023-07-26/daily
+2026-05-05 13:35:10,831 INFO Saving 209 rows for 2021-02-28
+2026-05-05 13:35:10,832 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-01/2021-03-01/daily
+2026-05-05 13:35:12,154 INFO Saving 288 rows for 2023-07-03
+2026-05-05 13:35:12,157 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-04/2023-07-04/daily
+2026-05-05 13:35:12,929 INFO Saving 287 rows for 2025-03-15
+2026-05-05 13:35:12,931 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-16/2025-03-16/daily
+2026-05-05 13:35:13,470 INFO 2025-01-19: no <tr> rows in history tbody
+2026-05-05 13:35:13,470 INFO Saving 0 rows for 2025-01-19
+2026-05-05 13:35:13,471 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-20/2025-01-20/daily
+2026-05-05 13:35:13,518 INFO Saving 288 rows for 2025-12-07
+2026-05-05 13:35:13,519 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-08/2025-12-08/daily
+2026-05-05 13:35:14,230 INFO Saving 288 rows for 2025-12-25
+2026-05-05 13:35:14,231 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-26/2025-12-26/daily
+2026-05-05 13:35:14,337 INFO Saving 288 rows for 2023-07-26
+2026-05-05 13:35:14,339 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-27/2023-07-27/daily
+2026-05-05 13:35:14,394 INFO Saving 282 rows for 2021-01-15
+2026-05-05 13:35:14,396 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-16/2021-01-16/daily
+2026-05-05 13:35:14,757 INFO Saving 257 rows for 2021-03-01
+2026-05-05 13:35:14,759 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-02/2021-03-02/daily
+2026-05-05 13:35:15,777 INFO Saving 288 rows for 2023-07-04
+2026-05-05 13:35:15,779 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-05/2023-07-05/daily
+2026-05-05 13:35:16,665 INFO 2025-01-20: no <tr> rows in history tbody
+2026-05-05 13:35:16,665 INFO Saving 0 rows for 2025-01-20
+2026-05-05 13:35:16,666 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-21/2025-01-21/daily
+2026-05-05 13:35:16,940 INFO Saving 288 rows for 2025-03-16
+2026-05-05 13:35:16,942 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-17/2025-03-17/daily
+2026-05-05 13:35:17,166 INFO Saving 288 rows for 2025-12-08
+2026-05-05 13:35:17,167 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-09/2025-12-09/daily
+2026-05-05 13:35:17,889 INFO Saving 288 rows for 2023-07-27
+2026-05-05 13:35:17,891 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-28/2023-07-28/daily
+2026-05-05 13:35:17,940 INFO Saving 288 rows for 2025-12-26
+2026-05-05 13:35:17,941 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-27/2025-12-27/daily
+2026-05-05 13:35:18,098 INFO Saving 285 rows for 2021-01-16
+2026-05-05 13:35:18,100 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-17/2021-01-17/daily
+2026-05-05 13:35:18,331 INFO Saving 283 rows for 2021-03-02
+2026-05-05 13:35:18,333 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-03/2021-03-03/daily
+2026-05-05 13:35:19,368 INFO Saving 288 rows for 2023-07-05
+2026-05-05 13:35:19,370 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-06/2023-07-06/daily
+2026-05-05 13:35:20,062 INFO 2025-01-21: no <tr> rows in history tbody
+2026-05-05 13:35:20,062 INFO Saving 0 rows for 2025-01-21
+2026-05-05 13:35:20,062 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-22/2025-01-22/daily
+2026-05-05 13:35:20,499 INFO Saving 267 rows for 2025-03-17
+2026-05-05 13:35:20,500 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-18/2025-03-18/daily
+2026-05-05 13:35:20,702 INFO Saving 288 rows for 2025-12-09
+2026-05-05 13:35:20,704 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-10/2025-12-10/daily
+2026-05-05 13:35:21,532 INFO Saving 288 rows for 2025-12-27
+2026-05-05 13:35:21,533 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-28/2025-12-28/daily
+2026-05-05 13:35:21,597 INFO Saving 283 rows for 2021-01-17
+2026-05-05 13:35:21,599 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-18/2021-01-18/daily
+2026-05-05 13:35:21,619 INFO Saving 288 rows for 2023-07-28
+2026-05-05 13:35:21,621 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-29/2023-07-29/daily
+2026-05-05 13:35:21,999 INFO Saving 284 rows for 2021-03-03
+2026-05-05 13:35:22,000 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-04/2021-03-04/daily
+2026-05-05 13:35:23,149 INFO Saving 287 rows for 2023-07-06
+2026-05-05 13:35:23,150 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-07/2023-07-07/daily
+2026-05-05 13:35:23,205 INFO 2025-01-22: no <tr> rows in history tbody
+2026-05-05 13:35:23,205 INFO Saving 0 rows for 2025-01-22
+2026-05-05 13:35:23,205 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-23/2025-01-23/daily
+2026-05-05 13:35:24,117 INFO Saving 272 rows for 2025-03-18
+2026-05-05 13:35:24,118 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-19/2025-03-19/daily
+2026-05-05 13:35:24,434 INFO Saving 288 rows for 2025-12-10
+2026-05-05 13:35:24,435 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-11/2025-12-11/daily
+2026-05-05 13:35:25,086 INFO Saving 288 rows for 2025-12-28
+2026-05-05 13:35:25,088 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-29/2025-12-29/daily
+2026-05-05 13:35:25,303 INFO Saving 288 rows for 2021-01-18
+2026-05-05 13:35:25,304 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-19/2021-01-19/daily
+2026-05-05 13:35:25,335 INFO Saving 288 rows for 2023-07-29
+2026-05-05 13:35:25,338 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-30/2023-07-30/daily
+2026-05-05 13:35:25,563 INFO Saving 287 rows for 2021-03-04
+2026-05-05 13:35:25,565 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-05/2021-03-05/daily
+2026-05-05 13:35:26,368 INFO 2025-01-23: no <tr> rows in history tbody
+2026-05-05 13:35:26,369 INFO Saving 0 rows for 2025-01-23
+2026-05-05 13:35:26,369 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-24/2025-01-24/daily
+2026-05-05 13:35:26,760 INFO Saving 288 rows for 2023-07-07
+2026-05-05 13:35:26,762 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2188/table/2023-07-08/2023-07-08/daily
+2026-05-05 13:35:27,726 INFO Saving 271 rows for 2025-03-19
+2026-05-05 13:35:27,728 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-20/2025-03-20/daily
+2026-05-05 13:35:28,014 INFO Saving 288 rows for 2025-12-11
+2026-05-05 13:35:28,016 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI3625/table/2025-12-12/2025-12-12/daily
+2026-05-05 13:35:28,873 INFO Saving 288 rows for 2025-12-29
+2026-05-05 13:35:28,875 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI768/table/2025-12-30/2025-12-30/daily
+2026-05-05 13:35:28,931 INFO Saving 288 rows for 2023-07-30
+2026-05-05 13:35:28,933 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KTXAUSTI2200/table/2023-07-31/2023-07-31/daily
+2026-05-05 13:35:28,943 INFO Saving 288 rows for 2021-01-19
+2026-05-05 13:35:28,944 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLNORTH341/table/2021-01-20/2021-01-20/daily
+2026-05-05 13:35:29,246 INFO Saving 288 rows for 2021-03-05
+2026-05-05 13:35:29,247 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI698/table/2021-03-06/2021-03-06/daily
+2026-05-05 13:35:29,734 INFO 2025-01-24: no <tr> rows in history tbody
+2026-05-05 13:35:29,734 INFO Saving 0 rows for 2025-01-24
+2026-05-05 13:35:29,735 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLMIAMI1030/table/2025-01-25/2025-01-25/daily
+2026-05-05 13:35:31,266 INFO Saving 280 rows for 2025-03-20
+2026-05-05 13:35:31,267 INFO Scraping data from https://www.wunderground.com/dashboard/pws/KFLHIALE117/table/2025-03-21/2025-03-21/daily
